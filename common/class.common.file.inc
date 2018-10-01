@@ -7,7 +7,42 @@ class File{
     private $_Name;
     private $_Link;
     private $_Discipline;
-    private $_CreationDate;
+    private $_Timestamp;
+    private $_Receiver;
+    private $_Targetfile;
+
+    /**
+     * @return mixed
+     */
+    public function getTargetfile()
+    {
+        return $this->_Targetfile;
+    }
+
+    /**
+     * @param mixed $Targetfile
+     */
+    public function setTargetfile($Targetfile)
+    {
+        $this->_Targetfile = $Targetfile;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getReceiver()
+    {
+        return $this->_Receiver;
+    }
+
+    /**
+     * @param mixed $Receiver
+     */
+    public function setReceiver($Receiver)
+    {
+        $this->_Receiver = $Receiver;
+    }
 
 
     public function setID($ID){
@@ -48,11 +83,11 @@ class File{
         return $this->_Discipline;
     }
 
-    public function setCreationDate($CreationDate){
-        $this->_CreationDate = $CreationDate;
+    public function setTimestamp($Timestamp){
+        $this->_Timestamp = $Timestamp;
     }
-    public function getCreationDate(){
-        return $this->_CreationDate;
+    public function getTimestamp(){
+        return $this->_Timestamp;
     }
 }
 
