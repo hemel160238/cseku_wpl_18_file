@@ -34,7 +34,7 @@ $uploadOk = 1;
 $fileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
 $file_ID = Util::getGUID();
-    $target_file = $target_dir.$file_ID.'.'.$fileType;
+$target_file = $target_dir.$file_ID.'.'.$fileType;
 // Check if file already exists
 if (file_exists($target_file)) {
     echo '<br>'. "Sorry, file already exists.";

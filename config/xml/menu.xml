@@ -853,17 +853,7 @@
 					<Permission>FILE_D</Permission>	
 				</Permissions>
 			</Menu>			
-			<Menu>
-				<ParentMenu>File Related</ParentMenu>
-				<Title>File Status</Title>
-				<Link>file_status.php</Link>
-				<Permissions>
-					<Permission>FILE_C</Permission>
-					<Permission>FILE_R</Permission>
-					<Permission>FILE_U</Permission>												
-					<Permission>FILE_D</Permission>	
-				</Permissions>
-			</Menu>
+
 			<Menu>
 				<ParentMenu>File Related</ParentMenu>
 				<Title>Share File</Title>
@@ -875,20 +865,8 @@
 					<Permission>FILE_D</Permission>	
 				</Permissions>
 			</Menu>
-			<Menu>
-			<ParentMenu>File Related</ParentMenu>
-			<Title>Upload File</Title>
-			<Link>file_upload.php</Link>
-			<Permissions>
-				<Permission>FILE_C</Permission>
-				<Permission>FILE_R</Permission>
-				<Permission>FILE_U</Permission>
-				<Permission>FILE_D</Permission>
-			</Permissions>
-			</Menu>
 
-
-	<!-- Job -->
+<!-- Job -->
 	<Menu>
 		<ParentMenu></ParentMenu>
 		<Title>Job</Title>

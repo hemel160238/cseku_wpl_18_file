@@ -10,6 +10,23 @@ class File{
     private $_Timestamp;
     private $_Receiver;
     private $_Targetfile;
+    private $_Comment;
+
+    /**
+     * @return mixed
+     */
+    public function getComment()
+    {
+        return $this->_Comment;
+    }
+
+    /**
+     * @param mixed $Comment
+     */
+    public function setComment($Comment)
+    {
+        $this->_Comment = $Comment;
+    }
 
     /**
      * @return mixed
@@ -46,7 +63,7 @@ class File{
 
 
     public function setID($ID){
-            $this->_ID = $ID;
+        $this->_ID = $ID;
     }
 
     public function getID(){
@@ -54,21 +71,21 @@ class File{
     }
 
     public function setCreator($Creator){
-            $this->_Creator = $Creator;
+        $this->_Creator = $Creator;
     }
 
     public function getCreator(){
         return $this->_Creator;
     }
     public function setName($Name){
-            $this->_Name = $Name;
+        $this->_Name = $Name;
     }
 
     public function getName(){
         return $this->_Name;
     }
     public function setLink($Link){
-            $this->_Link = $Link;
+        $this->_Link = $Link;
     }
 
     public function getLink(){
@@ -76,8 +93,8 @@ class File{
     }
 
     public function setDiscipline($Discipline){
-            $this->_Discipline = $Discipline;
-    }   
+        $this->_Discipline = $Discipline;
+    }
 
     public function getDiscipline(){
         return $this->_Discipline;
@@ -106,7 +123,7 @@ class File_assign{
     private $_AssignDate='0001-01-01';
 
     public function setID($ID){
-            $this->_ID = $ID;
+        $this->_ID = $ID;
     }
 
     public function getID(){

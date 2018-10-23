@@ -68,10 +68,17 @@ include_once $template_link.'menu.inc';
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Digital University</title>
-        <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-        <link rel="stylesheet" href="resources/css/style.css" type="text/css" />        
+        <link rel="stylesheet" href="resources/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="resources/css/bootstrap-grid.min.css"/>
+        <link rel="stylesheet" href="resources/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+
         <script src="resources/js/jquery.min.js"></script>
         <script src="resources/js/bootstrap.min.js"></script>
+
+        <script src="resources/js/bootstrap.bundle.js"></script>
+        <script src="resources/js/bootstrap.js"></script>
         <script src="resources/js/myscript.js"></script>
         <script src="resources/js/question_js_2.js" rel="script"></script>                            
     </head>

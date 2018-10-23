@@ -110,6 +110,6 @@ Class File_assignBAO{
 
 }
 
-echo '<br> log:: exit the class.file_assignbao.inc';
+//echo '<br> log:: exit the class.file_assignbao.inc';
 
 ?>

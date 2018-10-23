@@ -306,6 +306,6 @@ Class File_assignDAO{
 
 }
 
-echo '<br> log:: exit the class.File_assigndao.inc';
+//echo '<br> log:: exit the class.File_assigndao.inc';
 
 ?>

@@ -4,11 +4,14 @@
 #form
 {
 	width:500px;
-	
+
 	margin:0px auto;
 	text-align:center;
-	
+
 }
+
+
+
 #form form input
 {
 	width:100%;
@@ -36,7 +39,7 @@ table,td
 #middle{
 	width:1200px;
 	height: 400px
-	background-color: red; 
+	background-color: red;
 	float:left;
 }
 #side{
@@ -63,7 +66,7 @@ table,td
 }
 
 .Absolute-Center.is-Responsive {
-  width: 50%; 
+  width: 50%;
   height: 50%;
   min-width: 200px;
   max-width: 400px;
@@ -91,6 +94,8 @@ table,td
 }*/
 
 /**********   TOAST ---- START **********/
+
+
 #toastME {
     visibility: hidden;
     min-width: 250px;
@@ -114,7 +119,7 @@ table,td
 }
 
 @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
+    from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
 }
 
@@ -124,7 +129,7 @@ table,td
 }
 
 @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
+    from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
 
@@ -132,5 +137,11 @@ table,td
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
 }
+
+
+h1 {
+	color: red;
+}
+
 
 /**********   TOAST ---- END **********/

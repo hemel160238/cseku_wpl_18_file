@@ -6,92 +6,175 @@ include_once COMMON.'class.common.file.inc';
 
 ?>
 
-	<div id="notification">
-	<table width="100%" border="1" cellpadding="15" align="center">
-	<?php
-	
-	
-	$Result = $_File_assignBAO->searchFile_assign($globalUser->getID());
-
-	//if DAO access is successful to load all the Terms then show them one by one
-	if($Result->getIsSuccess()){
-
-		$FileList = $Result->getResultObject();
-		//print_r(sizeof($FileList));
-	?>
-		<tr>
-			
-			<td>From</td>
-			<td>To</td>
-			<td>Link</td>>
-			<td>Creation Date</td>
-			<td>Comments</td>
-			
-			
-		</tr>
-		<?php 
-		for($i = 0; $i < sizeof($FileList); $i++) {
-			$File = $FileList[$i];
-			if($File->getIsPending())
-			{
-			?>
-		    <tr>
-			    <td><?php 
-			    	$User = new user();
-			    	$User->setID($File->getCurrentUser());
-			    	$User = $_UserBAO->readUser($User);
-			    	$User = $User->getResultObject();
 
 
-			    	echo $User->getFirstName() ." ". $User->getLastName(); ?>
-			    		
-			    </td>
-			    <td><?php
-			    	$User = new user();
-			    	$User->setID($File->getPreviousUser());
-			    	$User = $_UserBAO->readUser($User);
-			    	$User = $User->getResultObject();
 
 
-			    	echo $User->getFirstName() ." ". $User->getLastName(); ?>
-			    		
-			    </td>
-			    <td>
-			    <?php
-			    $File1 = new File();
-			    	$File1->setID($File->getFile());
-			    	$File2 = $_FileBAO->readFile($File1);
-			    	$File1 = $File2->getResultObject();
-			    	//echo $File1->getLink();
-			    ?>
-			    <a href='<?php 
-			    echo "".$File1->getLink(); ?>' target="_blank"><?php echo "".$File1->getLink(); ?></a>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
 
-			    </td>
-			    <td><?php echo $File->getAssignDate(); ?></td>
-			    <td><?php echo $File->getFileComment(); ?></td>
-			    <td>
-			    	<a href="?accept=<?php echo $File->getID(); ?>" onclick="return confirm('sure to accept ?'); " >accept</a>
-			    </td>
-			    <td>
-			    	<a href="?reject=<?php echo $File->getID(); ?>" onclick="return confirm('sure to reject ?'); " >reject</a>
-			    </td>
-			    
-			    <td>
-			    	<a href="?history=<?php echo $File->getFile(); ?>" onclick="return ; " >history</a>
-			    </td>
-			    
-		    </tr>
-	    <?php
-	    	}
-		}
 
-	}
-	else{
 
-		echo $Result->getResultObject(); //giving failure message
-	}
 
-	?>
-	</table>
-	</div>
+            <table class="table table-hover table-dark">
+
+                <?php
+
+
+                $Result = $_FileBAO->getAllReceivedFiles();
+
+                //if DAO access is successful to load all the Terms then show them one by one
+                if($Result->getIsSuccess()){
+
+                $FileList = $Result->getResultObject();
+                ?>
+
+
+
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">From</th>
+                    <th scope="col">Time</th>
+
+                </tr>
+                </thead>
+
+
+                <tbody>
+
+                <?php
+                for($i = 0; $i < sizeof($FileList); $i++) {
+                $File = $FileList[$i];
+                ?>
+                <tr>
+                    <th scope="row"><?php echo ($i+1);?></th>
+                    <td><?php
+                        $User = new user();
+                        $User->setID($File->getCreator());
+                        $User = $_UserBAO->readUser($User);
+                        $User = $User->getResultObject();
+
+
+                        echo $User->getFirstName() ." ". $User->getLastName(); ?>
+                    </td>
+
+
+                    <td><?php
+                        echo ($File->getTimestamp());
+                        /*
+                        $Discipline = new discipline();
+                        $Discipline->setID($File->getDiscipline());
+                        $Discipline = $_DisciplineBAO->readDiscipline($Discipline);
+                        $Discipline = $Discipline->getResultObject();
+                        echo $Discipline->getName(); ?>
+                        */ ?>
+                    </td>
+
+                    <td
+                        ><button type="button" onclick="testFun(this.name)" class="btn btn-primary" name="<?php echo $File->getID();  ?>  ">Primary</button>
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+                    <?php
+
+                }
+
+                }
+                else{
+
+                    echo $Result->getResultObject(); //giving failure message
+                }
+
+                ?>
+            </table>
+
+
+
+        </div>
+        <div class="col-sm">
+
+            <table class="table table-hover table-dark">
+
+                <tbody>
+                <tr>
+                    <td>Sender</td>
+                    <td id="sender"><p id="test">  </p></td>
+
+                </tr>
+                <tr>
+
+                    <td>Discipline</td>
+                    <td id="discipline"></td>
+
+                </tr>
+                <tr>
+
+                    <td>Comment</td>
+                    <td id="comment"></td>
+
+                </tr>
+                <tr>
+
+                    <td>Time</td>
+                    <td id="time"></td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+            <a  id="downloadButton" href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Download</a>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<script>
+
+
+    function testFun(id) {
+
+
+        //document.getElementById("sender").innerHTML = "Nothing";
+
+        $.ajax(
+            { url: 'modules/file/ui/test.php',
+                data: {fileid: id},
+                type: 'get',
+                success: function(output) {
+
+
+                    var jsonData = JSON.parse(output);
+
+                    var name  = jsonData[0].FirstName + ' '+jsonData[0].LastName;
+                    var discipline = jsonData[0].Name;
+                    var  comment = jsonData[0].Comment;
+                    var time = jsonData[0].Timestamp;
+                    var link = jsonData[0].Link;
+
+                   // alert(name);
+
+                    document.getElementById("sender").innerHTML = name;
+                    document.getElementById("discipline").innerHTML = discipline;
+                    document.getElementById("comment").innerHTML = comment;
+                    document.getElementById("time").innerHTML = time;
+                    document.getElementById("downloadButton").href = link;
+
+
+
+                }
+            });
+
+
+    }
+
+</script>
