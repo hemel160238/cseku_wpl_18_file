@@ -73,7 +73,7 @@ include_once COMMON.'class.common.file.inc';
                     </td>
 
                     <td
-                        ><button type="button" onclick="testFun(this.name)" class="btn btn-primary" name="<?php echo $File->getID();  ?>  ">Primary</button>
+                        ><button type="button" onclick="testFun(this.name)" class="btn btn-primary" name="<?php echo $File->getID();  ?>  ">DetailA</button>
                     </td>
 
                 </tr>

@@ -105,7 +105,3 @@ function printToast(message) {
     //setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
     alert(message);
 }
-function Warn() {
-    alert ("This is a warning message!");
-    document.write ("This is a warning message!");
-}
