@@ -29,7 +29,8 @@ if(isset($_POST['save']))
     $uploadOk = 1;
     $target_dir = "uploads/file/";
     $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
-    $id = hash_file('md5',$_FILES["fileToUpload"]["tmp_name"]);
+    //$id = hash_file('md5',$_FILES["fileToUpload"]["tmp_name"]);
+    $id = Util::getGUID();
     $discipline = "";
     $receiver = $_POST["users"];
     $link = $_FILES["fileToUpload"]["tmp_name"];
@@ -61,32 +62,35 @@ if(isset($_POST['save']))
             //
 
             $File = new File();
-
-            $File->setComment($comment);
-            $File->setReceiver($receiver);
             $File->setID($id);
             $File->setCreator($globalUser->getID());
-            $File->setName($_DB->secureInput($_POST['users']));
-            //.$File->setLink($_DB->secureInput($_POST['link']));
             $File->setLink($target_file);
-            $File->setDiscipline($discipline);
+            $File->setCurrentUser($receiver);
+
 
 
 
             $FileAssign = new File_assign();
-            $FileAssign->setID(Util::getGUID());
-            $FileAssign->setFile($File->getID());
+            $FileAssign->setFile($File);
             $FileAssign->setFileComment($_DB->secureInput($_POST['Comment']));
-            //$FileAssign->setCreationDate(date("y/m/d"));
-            $FileAssign->setIsPending(1);
-            $FileAssign->setHasSeen(0);
-            $FileAssign->setIsRejected(0);
-            $FileAssign->setIsApproved(0);
-            $FileAssign->setPreviousUser($File->getCreator());
-            $FileAssign->setCurrentUser($File->getName());
-            $FileAssign->setCreationDate(date("Y-m-d H:i:s"));
+            $FileAssign->setSender($globalUser->getID());
+            $FileAssign->setReceiver($receiver);
+            $FileAssign->setTimestamp("");
 
-            $_FileBAO->createFile($File);
+
+            $FileCreationResult = $_FileBAO->createFile($File);
+            if ($FileCreationResult->getIsSuccess())
+            {
+                echo "File DOne ";
+
+                $FileAssignResult = $_File_assignBAO->createFile_assign($FileAssign);
+
+                if ($FileAssignResult->getIsSuccess())
+                {
+                    echo "Assign Done";
+                }
+            }
+
             //$_File_assignBAO->createFile_assign($FileAssign);
 
             //

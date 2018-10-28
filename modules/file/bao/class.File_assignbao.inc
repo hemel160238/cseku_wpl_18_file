@@ -22,13 +22,26 @@ Class File_assignBAO{
 	public function getAllFile_assigns(){
 
 		$Result = new Result();	
-		$Result = $this->_File_assignDAO->getAllFile_assigns();
+		$Result = $this->_File_assignDAO->getAllFile_assigns2();
 		
 		if(!$Result->getIsSuccess())
 			$Result->setResultObject("Database failure in File_assignDAO.getAllFile_assigns()");		
 
 		return $Result;
 	}
+
+
+    //get all File_assigns value
+    public function getAllReceivedFile_assigns(){
+
+        $Result = new Result();
+        $Result = $this->_File_assignDAO->getAllReceivedFile_assigns();
+
+        if(!$Result->getIsSuccess())
+            $Result->setResultObject("Database failure in File_assignDAO.getAllFile_assigns()");
+
+        return $Result;
+    }
 
 
 	//search File_assign function with the File_assign 
@@ -57,8 +70,8 @@ Class File_assignBAO{
 	//create File_assign funtion with the File_assign object
 	public function createFile_assign($File_assign){
 
-		$Result = new Result();	
-		$Result = $this->_File_assignDAO->createFile_assign($File_assign);
+		$Result = new Result();
+		$Result = $this->_File_assignDAO->createFile_assign2($File_assign);
 		
 		if(!$Result->getIsSuccess())
 			$Result->setResultObject("Database failure in File_assignDAO.createFile_assign()");		

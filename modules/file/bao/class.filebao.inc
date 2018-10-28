@@ -48,7 +48,7 @@ Class FileBAO{
 	public function createFile($File){
 
 		$Result = new Result();
-		$Result = $this->_FileDAO->createFile($File);
+		$Result = $this->_FileDAO->createFile2($File);
 
 		if(!$Result->getIsSuccess())
 			$Result->setResultObject("Database failure in FileDAO.createFile()");
@@ -56,6 +56,18 @@ Class FileBAO{
 		return $Result;
 
 
+	}
+
+
+	public function updateCurrentUser($File)
+	{
+        $Result = new Result();
+        $Result = $this->_FileDAO->updateCurrentUser($File);
+
+        if(!$Result->getIsSuccess())
+            $Result->setResultObject("Database failure in FileDAO.createFile()");
+
+        return $Result;
 	}
 
 	//read an File object based on its id form File object

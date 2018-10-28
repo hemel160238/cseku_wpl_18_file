@@ -63,6 +63,125 @@ Class File_assignDAO{
 		return $Result;
 	}
 
+
+    public function getAllReceivedFile_assigns()
+    {
+        $File_assignList = array();
+        $thisUser = $globalUser = $_SESSION['globalUser']->getID();
+
+        $this->_DB->doQuery("SELECT fms_fileassign.ID,fms_fileassign.sender,fms_fileassign.receiver,fms_fileassign.comment,fms_fileassign.timestamp,fms_file.Link,fms_file.CreatorID,fms_file.CurrentUser,T.DispName
+
+FROM fms_fileassign,fms_file,
+						(SELECT ums_user.ID AS FileReceiver,ums_discipline.Name AS DispName
+							FROM ums_discipline,ums_user
+							WHERE ums_discipline.ID = ums_user.DisciplineID) AS T
+
+WHERE fms_fileassign.ID = fms_file.ID AND fms_fileassign.receiver = T.FileReceiver AND fms_file.CurrentUser = '$thisUser' AND CurrentUser = receiver");
+
+
+
+        $rows = $this->_DB->getAllRows();
+
+        for($i = 0; $i < sizeof($rows); $i++) {
+            $row = $rows[$i];
+            $this->_File_assign = new File_assign();
+
+            $_File = new File();
+            $_File->setCurrentUser($row['CurrentUser']);
+            $_File->setLink($row['Link']);
+            $_File->setID($row['ID']);
+            $_File->setCreator($row['CreatorID']);
+
+
+
+
+            $this->_File_assign->setFile($_File);
+            $this->_File_assign->setFileComment( $row['comment']);
+            $this->_File_assign->setSender($row['sender']);
+            $this->_File_assign->setReceiver($row['receiver']);
+            $this->_File_assign->setTimestamp($row['timestamp']);
+            //$this->_File_assign->setDiscipline($row['Name']);
+            $this->_File_assign->setDiscipline($row['DispName']);
+
+
+
+
+
+
+
+            $File_assignList[]=$this->_File_assign;
+
+        }
+
+        //print_r($File_assignList);
+
+        //todo: LOG util with level of log
+
+
+        $Result = new Result();
+        $Result->setIsSuccess(1);
+        $Result->setResultObject($File_assignList);
+
+        return $Result;
+    }
+
+
+    // get all the File_assigns from the database using the database query
+    public function getAllFile_assigns2(){
+
+        $File_assignList = array();
+        $thisUser = $globalUser = $_SESSION['globalUser']->getID();
+
+        $this->_DB->doQuery("SELECT fms_fileassign.ID,fms_fileassign.sender,fms_fileassign.receiver,fms_fileassign.comment,fms_fileassign.timestamp,fms_file.Link,fms_file.CreatorID,fms_file.CurrentUser,T.DispName FROM fms_fileassign,fms_file, (SELECT ums_user.ID AS FileReceiver,ums_discipline.Name AS DispName FROM ums_discipline,ums_user WHERE ums_discipline.ID = ums_user.DisciplineID) AS T WHERE fms_fileassign.ID = fms_file.ID AND fms_fileassign.receiver = T.FileReceiver AND fms_fileassign.sender = '$thisUser'
+");
+
+
+
+        $rows = $this->_DB->getAllRows();
+
+        for($i = 0; $i < sizeof($rows); $i++) {
+            $row = $rows[$i];
+            $this->_File_assign = new File_assign();
+
+            $_File = new File();
+            $_File->setCurrentUser($row['CurrentUser']);
+            $_File->setLink($row['Link']);
+            $_File->setID($row['ID']);
+            $_File->setCreator($row['CreatorID']);
+
+
+
+
+            $this->_File_assign->setFile($_File);
+            $this->_File_assign->setFileComment( $row['comment']);
+            $this->_File_assign->setSender($row['sender']);
+            $this->_File_assign->setReceiver($row['receiver']);
+            $this->_File_assign->setTimestamp($row['timestamp']);
+            //$this->_File_assign->setDiscipline($row['Name']);
+            $this->_File_assign->setDiscipline($row['DispName']);
+
+
+
+
+
+
+
+            $File_assignList[]=$this->_File_assign;
+
+        }
+
+        //print_r($File_assignList);
+
+        //todo: LOG util with level of log
+
+
+        $Result = new Result();
+        $Result->setIsSuccess(1);
+        $Result->setResultObject($File_assignList);
+
+        return $Result;
+    }
+
 	//create File_assign funtion with the File_assign object
 	public function createFile_assign($File_assign){
 
@@ -94,6 +213,35 @@ Class File_assignDAO{
 
 		return $Result;
 	}
+
+
+
+	//Another CreateFileAssign
+    public function createFile_assign2($File_assign){
+
+        $ID = $File_assign->getFile()->getID();
+        $FileComment=$File_assign->getFileComment();
+        $FileSender = $File_assign->getSender();
+        $FileReceiver = $File_assign->getReceiver();
+
+
+
+
+
+        $SQL = "INSERT INTO fms_fileassign(ID, sender, receiver, disciplineID, comment, timestamp) VALUES('$ID', '$FileSender', '$FileReceiver', '', '$FileComment', now())";
+
+        //echo $SQL;
+
+        $SQL = $this->_DB->doQuery($SQL);
+
+        $Result = new Result();
+        $Result->setIsSuccess(1);
+        $Result->setResultObject($SQL);
+
+        return $Result;
+    }
+
+
 
 	//read an File_assign object based on its id form File_assign object
 	public function readFile_assign($File_assign){

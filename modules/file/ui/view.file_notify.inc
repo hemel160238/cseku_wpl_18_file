@@ -22,12 +22,12 @@ include_once COMMON.'class.common.file.inc';
                 <?php
 
 
-                $Result = $_FileBAO->getAllReceivedFiles();
+                $Result = $_File_assignBAO->getAllReceivedFile_assigns();
 
                 //if DAO access is successful to load all the Terms then show them one by one
                 if($Result->getIsSuccess()){
 
-                $FileList = $Result->getResultObject();
+                    $FileAssignList = $Result->getResultObject();
                 ?>
 
 
@@ -45,14 +45,15 @@ include_once COMMON.'class.common.file.inc';
                 <tbody>
 
                 <?php
-                for($i = 0; $i < sizeof($FileList); $i++) {
-                $File = $FileList[$i];
+                for($i = 0; $i < sizeof($FileAssignList); $i++) {
+                    $FileAssign = $FileAssignList[$i];
+                    $File = $FileAssign->getFile();
                 ?>
                 <tr>
                     <th scope="row"><?php echo ($i+1);?></th>
                     <td><?php
                         $User = new user();
-                        $User->setID($File->getCreator());
+                        $User->setID($FileAssign->getSender());
                         $User = $_UserBAO->readUser($User);
                         $User = $User->getResultObject();
 
@@ -62,7 +63,7 @@ include_once COMMON.'class.common.file.inc';
 
 
                     <td><?php
-                        echo ($File->getTimestamp());
+                        echo ($FileAssign->getTimestamp());
                         /*
                         $Discipline = new discipline();
                         $Discipline->setID($File->getDiscipline());
@@ -73,7 +74,7 @@ include_once COMMON.'class.common.file.inc';
                     </td>
 
                     <td
-                        ><button type="button" onclick="testFun(this.name)" class="btn btn-primary" name="<?php echo $File->getID();  ?>  ">DetailA</button>
+                        ><button type="button" onclick="testFun(this.name)" class="btn btn-primary" name="<?php echo $File->getID().",".$File->getCurrentUser();  ?>  ">DetailA</button>
                     </td>
 
                 </tr>
@@ -130,6 +131,92 @@ include_once COMMON.'class.common.file.inc';
             </table>
             <a  id="downloadButton" href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Download</a>
 
+            <button type="button" class="btn btn-primary" onclick="myFunction()">Primary</button>
+
+
+            <script>
+                function myFunction() {
+                    //alert(document.getElementById("form").style.display);
+                    if(document.getElementById("form").style.display == "none")
+                    {
+                        document.getElementById("form").style.display="block";
+                    }
+                    else
+                    {
+                        document.getElementById("form").style.display="none";
+                    }
+
+                }
+            </script>
+
+
+        </div>
+
+        <div class="col-sm">
+
+            <div id="form" style="display: none">
+                <form method="post" enctype="multipart/form-data">
+                    <table width="100%" border="1" cellpadding="15">
+                        <tr>
+                            <td>
+                                <h3>To</h3>
+                            </td>
+
+                            <td>
+                                <select name="users">
+                                    <?php $Result = $_UserBAO->getAllUsers();
+
+                                    //if DAO access is successful to load all the Disciplines then show them one by one
+                                    if($Result->getIsSuccess()){
+
+                                        $UserList = $Result->getResultObject();
+
+
+                                        for($i = 0; $i < sizeof($UserList); $i++) {
+                                            $User = $UserList[$i];
+                                            # code...?>
+
+                                            <option value="<?php echo $User->getID(); ?>">
+                                                <?php echo $User->getFirstName() ." ". $User->getLastName(); ?>
+                                            </option> <?php
+                                        }
+                                    }
+                                    else{
+
+                                        echo $Result->getResultObject(); //giving failure message
+
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <h3>Comments</h3>
+                            </td>
+                            <td>
+                                <input type="text" name="Comment" id="Comment">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="text" name="fileId" id="fileId" style="display: none" value="nothing">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <button type="submit" name="forward">Forward</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+                <br />
+            </div>
+
         </div>
 
 
@@ -138,17 +225,27 @@ include_once COMMON.'class.common.file.inc';
 </div>
 
 
+
+
+
 <script>
 
 
     function testFun(id) {
+
+         var result = id.split(',');
+
+
+        //alert(result[1]);
+
+
 
 
         //document.getElementById("sender").innerHTML = "Nothing";
 
         $.ajax(
             { url: 'modules/file/ui/test.php',
-                data: {fileid: id},
+                data: {fileid: result[0], userId: result[1]},
                 type: 'get',
                 success: function(output) {
 
@@ -156,9 +253,9 @@ include_once COMMON.'class.common.file.inc';
                     var jsonData = JSON.parse(output);
 
                     var name  = jsonData[0].FirstName + ' '+jsonData[0].LastName;
-                    var discipline = jsonData[0].Name;
-                    var  comment = jsonData[0].Comment;
-                    var time = jsonData[0].Timestamp;
+                    var discipline = jsonData[0].DispName;
+                    var  comment = jsonData[0].comment;
+                    var time = jsonData[0].timestamp;
                     var link = jsonData[0].Link;
 
                    // alert(name);
@@ -168,11 +265,14 @@ include_once COMMON.'class.common.file.inc';
                     document.getElementById("comment").innerHTML = comment;
                     document.getElementById("time").innerHTML = time;
                     document.getElementById("downloadButton").href = link;
+                    document.getElementById("fileId").value = result[0];
 
 
 
                 }
             });
+
+
 
 
     }

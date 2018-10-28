@@ -9,6 +9,7 @@ include_once MODULES_USER.'bao/class.userbao.inc'; //module dependency
 
 
 
+
 if(isset($_GET['action']) && !empty($_GET['action'])) {
     $action = $_GET['action'];
     echo $action;
@@ -113,5 +114,40 @@ if(isset($_GET['reject']))
 
 //echo '<br> log:: exit notification.blade.file.inc';
 
+if (isset($_POST['forward']))
+{
+
+    $receiver = $_POST['users'];
+    $fileId = $_POST['fileId'];
+
+    //echo $fileId;
+
+
+
+	$File = new File();
+	$File->setID($fileId);
+	$File->setCurrentUser($receiver);
+
+    $FileAssign = new File_assign();
+    $FileAssign->setFile($File);
+    $FileAssign->setFileComment($_DB->secureInput($_POST['Comment']));
+    $FileAssign->setSender($globalUser->getID());
+    $FileAssign->setReceiver($receiver);
+    $FileAssign->setTimestamp("");
+
+
+    $FileCurrentUserUpdateResult = $_FileBAO->updateCurrentUser($File);
+    if ($FileCurrentUserUpdateResult->getIsSuccess())
+    {
+        $FileAssignResult = $_File_assignBAO->createFile_assign($FileAssign);
+
+        if ($FileAssignResult->getIsSuccess())
+        {
+
+        }
+    }
+
+
+}
 
 ?>

@@ -63,6 +63,29 @@ WHERE fms_file.CreatorID = '$user_id' AND fms_file.Receiver = ums_user.ID");
 		return $Result;
 	}
 
+
+    public function updateCurrentUser($File)
+    {
+        $globalUser = $_SESSION['globalUser'];
+
+        $newCurrentUser = $File->getCurrentUser();
+        $fileId = $File->getID();
+
+        $this->_DB->doQuery("UPDATE fms_file
+					SET fms_file.CurrentUser = '$newCurrentUser'
+						WHERE fms_file.ID = '$fileId'");
+
+        $Result = new Result();
+        $Result->setIsSuccess(1);
+        //$Result->setResultObject($FileList);
+
+        return $Result;
+
+
+    }
+
+
+
 	public function getAllReceivedFiles(){
 		$globalUser = $_SESSION['globalUser'];
 
@@ -136,6 +159,34 @@ WHERE fms_file.Receiver = '$user_id' AND fms_file.CreatorID = ums_user.ID");
 
 		return $Result;
 	}
+
+
+	//create file second function
+    public function createFile2($File){
+
+        $ID=$File->getID();
+        $Creator=$File->getCreator();
+        $Link=$File->getLink();
+        $CurrentUser = $File->getCurrentUser();
+
+
+
+
+
+        $SQL = "INSERT INTO fms_file(ID,Link,CreatorID,CurrentUser) VALUES('$ID','$Link', '$Creator', '$CurrentUser')";
+
+
+
+
+        $SQL = $this->_DB->doQuery($SQL);
+
+        $Result = new Result();
+        $Result->setIsSuccess(1);
+        $Result->setResultObject($SQL);
+
+        return $Result;
+    }
+
 
 	//read an File object based on its id form File object
 	public function readFile($File){

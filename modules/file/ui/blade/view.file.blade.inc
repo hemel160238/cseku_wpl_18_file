@@ -15,7 +15,6 @@ $globalUser = $_SESSION['globalUser'];
 $_FileBAO = new FileBAO();
 $_DB = DBUtil::getInstance();
 $_File_assignBAO = new File_assignBAO();
-
 $_DisciplineBAO = new DisciplineBAO();
 $_UserBAO = new UserBAO();
 
