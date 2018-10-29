@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 28, 2018 at 10:58 AM
+-- Generation Time: Oct 29, 2018 at 08:36 AM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -41,13 +41,12 @@ CREATE TABLE IF NOT EXISTS `fms_file` (
 --
 
 INSERT INTO `fms_file` (`ID`, `Link`, `CreatorID`, `CurrentUser`) VALUES
-('{A9D03463-15D8-4DE9-B6AE-E81F7485B9E3}', 'uploads/file/Assignment.pdf', 'mkazi078@uottawa.ca', 'aysha@gmail.com'),
-('{45AA77F9-9C5C-42FA-9D31-A90129ED2B9C}', 'uploads/file/backup.txt', 'mkazi078@uottawa.ca', 'zahid@gmail.com'),
-('{03E43B60-C12D-45CB-8165-1821B8D8038B}', 'uploads/file/Joya.pdf', 'mkazi078@uottawa.ca', 'aysha@gmail.com'),
-('{6E904E9B-8682-4A77-8E80-2B81E5276F13}', 'uploads/file/gas-1.jpg', 'mkazi078@uottawa.ca', 'aysha@gmail.com'),
-('{8F659BE7-B05E-461F-8EF9-A72D21FD60DB}', 'uploads/file/Power-Shortage.jpg', 'mkazi078@uottawa.ca', 'zahid@gmail.com'),
-('{F3D027CF-6855-4520-ABEE-5CE5AED21AB0}', 'uploads/file/fznwqqxbyg-1464682599.jpg', 'aysha@gmail.com', 'mkazi078@uottawa.ca'),
-('{B0B3FB1F-ADA0-4246-87E0-BBE315C8AAD7}', 'uploads/file/WASA20170731134440.jpg', 'kashif@gmail.com', 'mkazi078@uottawa.ca');
+('{13D1A0DC-AD33-4D56-8886-D9AE6AC0F17E}', 'uploads/file/Assignment.pdf', 'mkazi078@uottawa.ca', 'aysha@gmail.com'),
+('{EC6AA2AD-9FD7-439F-82A0-FD2C21CCEE6D}', 'uploads/file/Capture.JPG', 'zahid@gmail.com', 'kashif@gmail.com'),
+('{CB759475-1066-40B9-8A4E-29B62717B349}', 'uploads/file/Buy__.JPG', 'zahid@gmail.com', 'mkazi078@uottawa.ca'),
+('{E27BFF2A-5AE6-47B6-B1A1-BD349071FC81}', 'uploads/file/gas-1.jpg', 'kashif@gmail.com', 'aysha@gmail.com'),
+('{77820CC5-7B09-4A44-B54B-87CD6CC0262C}', 'uploads/file/1.jpg', 'mkazi078@uottawa.ca', 'zahid@gmail.com'),
+('{395EA86B-F049-4698-8D47-6D8E8CB9E56A}', 'uploads/file/C.png', 'kashif@gmail.com', 'mkazi078@uottawa.ca');
 
 -- --------------------------------------------------------
 
@@ -70,11 +69,16 @@ CREATE TABLE IF NOT EXISTS `fms_fileassign` (
 --
 
 INSERT INTO `fms_fileassign` (`ID`, `sender`, `receiver`, `disciplineID`, `comment`, `timestamp`) VALUES
-('{03E43B60-C12D-45CB-8165-1821B8D8038B}', 'mkazi078@uottawa.ca', 'aysha@gmail.com', '', 'nothing here', '2018-10-27 17:52:16'),
-('{6E904E9B-8682-4A77-8E80-2B81E5276F13}', 'mkazi078@uottawa.ca', 'aysha@gmail.com', '', '-_-', '2018-10-27 17:58:17'),
-('{8F659BE7-B05E-461F-8EF9-A72D21FD60DB}', 'mkazi078@uottawa.ca', 'zahid@gmail.com', '', 'Hello World', '2018-10-27 18:24:53'),
-('{F3D027CF-6855-4520-ABEE-5CE5AED21AB0}', 'aysha@gmail.com', 'mkazi078@uottawa.ca', '', 'Hello World', '2018-10-27 19:37:55'),
-('{B0B3FB1F-ADA0-4246-87E0-BBE315C8AAD7}', 'kashif@gmail.com', 'mkazi078@uottawa.ca', '', 'Nothing', '2018-10-27 20:53:47');
+('{13D1A0DC-AD33-4D56-8886-D9AE6AC0F17E}', 'mkazi078@uottawa.ca', 'aysha@gmail.com', '', 'Check This', '2018-10-28 19:28:10'),
+('{EC6AA2AD-9FD7-439F-82A0-FD2C21CCEE6D}', 'zahid@gmail.com', 'mkazi078@uottawa.ca', '', 'This is an Image File', '2018-10-28 19:28:55'),
+('{CB759475-1066-40B9-8A4E-29B62717B349}', 'zahid@gmail.com', 'mkazi078@uottawa.ca', '', 'Bug  jpg', '2018-10-28 19:30:39'),
+('{EC6AA2AD-9FD7-439F-82A0-FD2C21CCEE6D}', 'mkazi078@uottawa.ca', 'aysha@gmail.com', '', 'Chek this one', '2018-10-28 19:31:48'),
+('{EC6AA2AD-9FD7-439F-82A0-FD2C21CCEE6D}', 'aysha@gmail.com', 'kashif@gmail.com', '', 'Another File to Review', '2018-10-28 19:35:18'),
+('{E27BFF2A-5AE6-47B6-B1A1-BD349071FC81}', 'kashif@gmail.com', 'mkazi078@uottawa.ca', '', 'Here is a picture', '2018-10-29 05:00:56'),
+('{E27BFF2A-5AE6-47B6-B1A1-BD349071FC81}', 'mkazi078@uottawa.ca', 'aysha@gmail.com', '', 'Review this pic', '2018-10-29 05:01:28'),
+('{77820CC5-7B09-4A44-B54B-87CD6CC0262C}', 'mkazi078@uottawa.ca', 'zahid@gmail.com', '', 'Review this pic', '2018-10-29 05:55:01'),
+('{395EA86B-F049-4698-8D47-6D8E8CB9E56A}', 'kashif@gmail.com', 'zahid@gmail.com', '', 'new filw', '2018-10-29 07:00:38'),
+('{395EA86B-F049-4698-8D47-6D8E8CB9E56A}', 'zahid@gmail.com', 'mkazi078@uottawa.ca', '', 'review', '2018-10-29 07:01:40');
 
 -- --------------------------------------------------------
 
@@ -966,7 +970,7 @@ CREATE TABLE IF NOT EXISTS `ums_user` (
 
 INSERT INTO `ums_user` (`ID`, `UniversityID`, `Email`, `Password`, `FirstName`, `MiddleName`, `LastName`, `DisciplineID`, `Status`, `IsLogged`, `IsArchived`, `IsDeleted`) VALUES
 ('aysha@gmail.com', '020208', 'aysha@gmail.com', '$2y$10$pJX46d.T.jkANrRShAm0qOMYkYJ/YbNfu09BFmcmMiYGKfuuEcWgO', 'Aysha', 'mrs', 'Akther', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL),
-('kashif@gmail.com', '020202', 'kashif@gmail.com', '$2y$10$pM7S85LE300vkDhYnFIz0.WKfpSPJLMNzTS4y1wLCH0TeR0qno27q', 'Kashif', 'Nizam', 'Khan', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL),
+('kashif@gmail.com', '020202', 'kashif@gmail.com', '$2y$10$pJX46d.T.jkANrRShAm0qOMYkYJ/YbNfu09BFmcmMiYGKfuuEcWgO', 'Kashif', 'Nizam', 'Khan', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL),
 ('mkazi078@uottawa.ca', '020229', 'mkazi078@uottawa.ca', '$2y$10$l0gFzILMq03DcwcBGxIdgunnOd9G5kF8J8ucZZvCKkt8mNGlI74/W', 'Kazi', 'Masudul', 'Alam', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL),
 ('zahid@gmail.com', '020203', 'zahid@gmail.com', '$2y$10$pJX46d.T.jkANrRShAm0qOMYkYJ/YbNfu09BFmcmMiYGKfuuEcWgO', 'Zahidul', '', 'Islam', '{FFDB1CB8-AF34-4381-8971-9784DCB516C5}', 'approved', NULL, NULL, NULL);
 
