@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d04ac127-d39a-458e-82e7-fafd117f4e1f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/file/fznwqqxbyg-1464682599.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/file/power-kcGD--621x414@LiveMint.jpg" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/modules/file/ui/view.file_history.inc" afterPath="$PROJECT_DIR$/modules/file/ui/blade/view.file_history.blade.inc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/class.common.inc" afterPath="$PROJECT_DIR$/common/class.common.inc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/file/bao/class.File_assignbao.inc" afterPath="$PROJECT_DIR$/modules/file/bao/class.File_assignbao.inc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/file/dao/class.File_assigndao.inc" afterPath="$PROJECT_DIR$/modules/file/dao/class.File_assigndao.inc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/file/ui/blade/view.notification.blade.inc" afterPath="$PROJECT_DIR$/modules/file/ui/blade/view.notification.blade.inc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/file/ui/blade/view.share.blade.inc" afterPath="$PROJECT_DIR$/modules/file/ui/blade/view.share.blade.inc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/file/ui/test.php" afterPath="$PROJECT_DIR$/modules/file/ui/test.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/file/ui/view.file.inc" afterPath="$PROJECT_DIR$/modules/file/ui/view.file.inc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/file/ui/view.file_notify.inc" afterPath="$PROJECT_DIR$/modules/file/ui/view.file_notify.inc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/file/ui/view.file_share.inc" afterPath="$PROJECT_DIR$/modules/file/ui/view.file_share.inc" />
-    </list>
+    <list default="true" id="d04ac127-d39a-458e-82e7-fafd117f4e1f" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.file.inc" pinned="false" current-in-tab="true">
+      <file leaf-file-name="view.file.inc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/file/ui/view.file.inc">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
@@ -49,6 +35,56 @@
                 <marker date="1540752672785" expanded="true" signature="4238:4379" ph="..." />
                 <marker date="1540752672785" expanded="true" signature="4635:4660" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class.common.inc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/class.common.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8169">
+              <caret line="217" column="57" lean-forward="true" selection-start-line="217" selection-start-column="57" selection-end-line="217" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="path.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/path.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="16" column="52" lean-forward="true" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/xml/menu.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="461">
+              <caret line="838" column="29" lean-forward="true" selection-start-line="838" selection-start-column="29" selection-end-line="838" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="permission.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/xml/permission.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="system.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/system.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,72 +107,6 @@
               <folding>
                 <marker date="1540732032526" expanded="true" signature="101:123" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class.filedao.inc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/file/dao/class.filedao.inc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="186" column="22" lean-forward="false" selection-start-line="186" selection-start-column="15" selection-end-line="186" selection-end-column="22" />
-              <folding>
-                <marker date="1540733144755" expanded="true" signature="565:616" ph="SELECT * FRO... fms_file" />
-                <marker date="1540733144755" expanded="true" signature="643:827" ph="SELECT fms_f... " />
-                <marker date="1540733144755" expanded="true" signature="1722:1823" ph="UPDATE fms_f... " />
-                <marker date="1540733144755" expanded="true" signature="2165:2215" ph="SELECT * FRO... fms_file" />
-                <marker date="1540733144755" expanded="true" signature="2248:2432" ph="SELECT fms_f... " />
-                <marker date="1540733144755" expanded="true" signature="3389:3561" ph="INSERT INTO fms_file... " />
-                <marker date="1540733144755" expanded="true" signature="3956:4057" ph="INSERT INTO fms_file... " />
-                <marker date="1540733144755" expanded="true" signature="4348:4400" ph="SELECT * FRO... fms_file" />
-                <marker date="1540733144755" expanded="true" signature="5026:5181" ph="UPDATE fms_f... " />
-                <marker date="1540733144755" expanded="true" signature="5434:5485" ph="DELETE from " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.file_notify.inc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/file/ui/view.file_notify.inc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1386">
-              <caret line="256" column="22" lean-forward="false" selection-start-line="256" selection-start-column="22" selection-end-line="256" selection-end-column="22" />
-              <folding>
-                <marker date="1540790159898" expanded="true" signature="8591:8732" ph="..." />
-                <marker date="1540790159898" expanded="true" signature="8988:9013" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.notification.blade.inc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/file/ui/blade/view.notification.blade.inc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="147" column="48" lean-forward="false" selection-start-line="147" selection-start-column="39" selection-end-line="147" selection-end-column="48" />
-              <folding>
-                <marker date="1540755174862" expanded="true" signature="2763:2773" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view.file_share.inc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/file/ui/view.file_share.inc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="914">
-              <caret line="85" column="21" lean-forward="false" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class.common.file.inc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/class.common.file.inc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="82" column="25" lean-forward="true" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -171,9 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$(document)</find>
-      <find>myscri</find>
-      <find>&lt;script</find>
       <find>class File</find>
       <find>comment</find>
       <find>&lt;head&gt;</find>
@@ -201,6 +168,9 @@
       <find>Forward</find>
       <find>head</find>
       <find>Prima</find>
+      <find>view.file.inc</find>
+      <find>$FILE_NOTIFY</find>
+      <find>Manage Files</find>
     </findStrings>
     <dirStrings>
       <dir>C:\wamp64\www\dgted</dir>
@@ -304,6 +274,12 @@
             <path>
               <item name="cseku_wpl_18_file" type="b2602c69:ProjectViewProjectNode" />
               <item name="cseku_wpl_18_file" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="xml" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="cseku_wpl_18_file" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cseku_wpl_18_file" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -311,20 +287,6 @@
               <item name="cseku_wpl_18_file" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="file" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cseku_wpl_18_file" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cseku_wpl_18_file" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="file" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="bao" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cseku_wpl_18_file" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cseku_wpl_18_file" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="file" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="dao" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="cseku_wpl_18_file" type="b2602c69:ProjectViewProjectNode" />
@@ -332,14 +294,6 @@
               <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="file" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="ui" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cseku_wpl_18_file" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cseku_wpl_18_file" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="file" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ui" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="blade" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="cseku_wpl_18_file" type="b2602c69:ProjectViewProjectNode" />
@@ -395,12 +349,12 @@
       <workItem from="1540270412560" duration="1098000" />
       <workItem from="1540658367510" duration="15290000" />
       <workItem from="1540724557135" duration="29007000" />
-      <workItem from="1540788864343" duration="2928000" />
+      <workItem from="1540788864343" duration="4429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87696000" />
+    <option name="totallyTimeSpent" value="89197000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -410,6 +364,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15241228" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -421,7 +376,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -438,13 +392,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2604">
-          <caret line="124" column="18" lean-forward="false" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/file/ui/view.file.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -553,6 +500,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -610,6 +558,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="54" column="40" lean-forward="true" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -625,6 +574,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
           <caret line="73" column="77" lean-forward="true" selection-start-line="73" selection-start-column="77" selection-end-line="73" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -642,24 +592,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/xml/menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="859" column="43" lean-forward="true" selection-start-line="859" selection-start-column="43" selection-end-line="859" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/file/ui/file_upload.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/path.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="16" column="52" lean-forward="true" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -686,14 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/class.common.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -749,14 +677,6 @@
             <marker date="1540790159898" expanded="true" signature="8591:8732" ph="..." />
             <marker date="1540790159898" expanded="true" signature="8988:9013" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/system.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,6 +800,46 @@
             <marker date="1540752672785" expanded="true" signature="4238:4379" ph="..." />
             <marker date="1540752672785" expanded="true" signature="4635:4660" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/path.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="52" lean-forward="true" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/xml/permission.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/system.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/class.common.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8169">
+          <caret line="217" column="57" lean-forward="true" selection-start-line="217" selection-start-column="57" selection-end-line="217" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/xml/menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="838" column="29" lean-forward="true" selection-start-line="838" selection-start-column="29" selection-end-line="838" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
