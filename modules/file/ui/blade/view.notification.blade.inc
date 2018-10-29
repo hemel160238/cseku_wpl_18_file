@@ -36,6 +36,7 @@ if(isset($_GET['edit']))
 	$getROW = $_FileBAO->readFile($File)->getResultObject(); //reading the File object from the result object
 }
 
+/*
 if(isset($_GET['history']))
 {
 	$_SESSION['globalFileID'] = $_GET['history'];
@@ -43,7 +44,7 @@ if(isset($_GET['history']))
 
 	//reading the File object from the result object
 }
-
+*/
 if(isset($_GET['send']))
 {
 	$File = new File_assign();
@@ -120,30 +121,38 @@ if (isset($_POST['forward']))
     $receiver = $_POST['users'];
     $fileId = $_POST['fileId'];
 
-    //echo $fileId;
-
-
-
-	$File = new File();
-	$File->setID($fileId);
-	$File->setCurrentUser($receiver);
-
-    $FileAssign = new File_assign();
-    $FileAssign->setFile($File);
-    $FileAssign->setFileComment($_DB->secureInput($_POST['Comment']));
-    $FileAssign->setSender($globalUser->getID());
-    $FileAssign->setReceiver($receiver);
-    $FileAssign->setTimestamp("");
-
-
-    $FileCurrentUserUpdateResult = $_FileBAO->updateCurrentUser($File);
-    if ($FileCurrentUserUpdateResult->getIsSuccess())
+    if ($fileId == 'nothing')
     {
-        $FileAssignResult = $_File_assignBAO->createFile_assign($FileAssign);
+        //echo ("Select Any File ");
+        echo ("<h4 style='color: red'>Select Any File </h4>");
+    }
 
-        if ($FileAssignResult->getIsSuccess())
-        {
+    else {
 
+
+        //echo $fileId;
+
+
+        $File = new File();
+        $File->setID($fileId);
+        $File->setCurrentUser($receiver);
+
+        $FileAssign = new File_assign();
+        $FileAssign->setFile($File);
+        $FileAssign->setFileComment($_DB->secureInput($_POST['Comment']));
+        $FileAssign->setSender($globalUser->getID());
+        $FileAssign->setReceiver($receiver);
+        $FileAssign->setTimestamp("");
+
+
+        $FileCurrentUserUpdateResult = $_FileBAO->updateCurrentUser($File);
+        if ($FileCurrentUserUpdateResult->getIsSuccess()) {
+            $FileAssignResult = $_File_assignBAO->createFile_assign($FileAssign);
+
+            if ($FileAssignResult->getIsSuccess()) {
+                header("Location:".PageUtil::$FILE);
+
+            }
         }
     }
 

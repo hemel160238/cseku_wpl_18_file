@@ -30,6 +30,17 @@ Class File_assignBAO{
 		return $Result;
 	}
 
+	public function getFileHistory($File)
+    {
+        $Result = new Result();
+        $Result = $this->_File_assignDAO->getFileHistory($File);
+
+        if(!$Result->getIsSuccess())
+            $Result->setResultObject("Database failure in File_assignDAO.getAllFile_assigns()");
+
+        return $Result;
+    }
+
 
     //get all File_assigns value
     public function getAllReceivedFile_assigns(){

@@ -63,6 +63,41 @@ Class File_assignDAO{
 		return $Result;
 	}
 
+	public function getFileHistory($File)
+    {
+        $fileid = $File->getID();
+        $File_assignList = array();
+        $this->_DB->doQuery("SELECT * FROM fms_fileassign WHERE fms_fileassign.ID = '$fileid' ORDER BY fms_fileassign.timestamp");
+
+        $rows = $this->_DB->getAllRows();
+        for($i = 0; $i < sizeof($rows); $i++) {
+            $row = $rows[$i];
+            $this->_File_assign = new File_assign();
+
+            $_File = new File();
+            $_File->setID($row['ID']);
+
+
+            $this->_File_assign->setFile($_File);
+            $this->_File_assign->setFileComment( $row['comment']);
+            $this->_File_assign->setSender($row['sender']);
+            $this->_File_assign->setReceiver($row['receiver']);
+            $this->_File_assign->setTimestamp($row['timestamp']);
+            //$this->_File_assign->setDiscipline($row['Name']);
+
+
+            $File_assignList[]=$this->_File_assign;
+
+        }
+
+        $Result = new Result();
+        $Result->setIsSuccess(1);
+        $Result->setResultObject($File_assignList);
+
+        return $Result;
+
+    }
+
 
     public function getAllReceivedFile_assigns()
     {

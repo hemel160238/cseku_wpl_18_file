@@ -306,6 +306,8 @@ class PageUtil{
     public static $FILE_NOTIFY='file_notify.php';
     public static $FILE_SHARE='file_share.php';
     public static $FILE_STATUS='file_status.php';
+
+
    
 
     public static $FEEDBACK='feedback.php';
@@ -491,6 +493,7 @@ class RouteUtil{
          self::$s_Routes[PageUtil::$FILE_SHARE] = "modules/file/ui/view.file_share.inc";
 
 
+
          self::$s_Routes[PageUtil::$YEAR]  =   "modules/registration/ui/view.year.inc";
 
          //JOB
@@ -580,6 +583,8 @@ class MiddlewareUtil{
          self::$s_Routes[PageUtil::$FILE_NOTIFY]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$FILE_SHARE]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$FILE_STATUS]   =  PageUtil::$LOGIN ;
+         //self::$s_Routes[PageUtil::$FILE_HISTORY] = PageUtil::$LOGIN;
+
 
 
          self::$s_Routes[PageUtil::$FEEDBACK]   =  PageUtil::$LOGIN ;

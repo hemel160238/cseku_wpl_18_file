@@ -62,7 +62,10 @@ include_once COMMON.'class.common.file.inc';
                     <h3>Comments</h3>
                 </td>
                 <td>
-                    <input type="text" name="Comment" id="Comment">
+                    <!--<input type="text" name="Comment" id="Comment"> -->
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Comment"></textarea>
+
+
                 </td>
             </tr>
 
@@ -88,4 +91,7 @@ include_once COMMON.'class.common.file.inc';
     </form>
 
     <br />
+
+
 </div>
+

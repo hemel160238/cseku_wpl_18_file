@@ -87,7 +87,7 @@ if(isset($_POST['save']))
 
                 if ($FileAssignResult->getIsSuccess())
                 {
-                    echo "Assign Done";
+                    header("Location:".PageUtil::$FILE);
                 }
             }
 
