@@ -58,6 +58,17 @@ Class FileBAO{
 
 	}
 
+	public function updateFileLink($File)
+	{
+        $Result = new Result();
+        $Result = $this->_FileDAO->updateFileLink($File);
+
+        if(!$Result->getIsSuccess())
+            $Result->setResultObject("Database failure in FileDAO.createFile()");
+
+        return $Result;
+	}
+
 
 	public function updateCurrentUser($File)
 	{

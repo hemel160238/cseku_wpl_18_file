@@ -82,6 +82,26 @@ class File_assign{
     private $_receiver;
     private $_discipline;
     private $_timestamp;
+    private $_links;
+
+    /**
+     * @return mixed
+     */
+    public function getLinks()
+    {
+        return $this->_links;
+    }
+
+    /**
+     * @param mixed $links
+     */
+    public function setLinks($links)
+    {
+        $this->_links = $links;
+    }
+
+
+
 
 
 

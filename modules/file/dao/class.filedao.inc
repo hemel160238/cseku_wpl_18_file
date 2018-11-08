@@ -251,6 +251,27 @@ WHERE fms_file.Receiver = '$user_id' AND fms_file.CreatorID = ums_user.ID");
 
 	}
 
+
+	public function updateFileLink($File)
+	{
+        $globalUser = $_SESSION['globalUser'];
+
+        $newCurrentUser = $File->getCurrentUser();
+        $fileId = $File->getID();
+        $fileLink = $File->getLink();
+
+        $this->_DB->doQuery("UPDATE fms_file
+					SET fms_file.CurrentUser = '$newCurrentUser', fms_file.Link = '$fileLink'
+						WHERE fms_file.ID = '$fileId'");
+
+        $Result = new Result();
+        $Result->setIsSuccess(1);
+        //$Result->setResultObject($FileList);
+
+        return $Result;
+
+	}
+
 }
 
 //echo '<br> log:: exit the class.filedao.inc';

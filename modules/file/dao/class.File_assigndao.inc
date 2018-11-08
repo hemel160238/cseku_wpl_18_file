@@ -45,8 +45,6 @@ Class File_assignDAO{
 			$this->_File_assign->setAssignDate( $row['AssignDate']);
 
 
-
-
 		    $File_assignList[]=$this->_File_assign;
    
 		}
@@ -62,6 +60,95 @@ Class File_assignDAO{
 
 		return $Result;
 	}
+
+
+
+	public function createFile_assign_and_append($File_assign)
+    {
+        $ID = $File_assign->getFile()->getID();
+
+        $SQL1 = "SELECT * 
+                    FROM `fms_fileassign` 
+                    WHERE fms_fileassign.ID = '$ID'
+                    ORDER BY fms_fileassign.timestamp DESC LIMIT 1";
+
+        //
+
+        $FileComment=$File_assign->getFileComment();
+        $FileSender = $File_assign->getSender();
+        $FileReceiver = $File_assign->getReceiver();
+        $FileLink = $File_assign->getLinks();
+
+
+
+
+
+        $SQL = "INSERT INTO fms_fileassign(ID, sender, receiver, disciplineID, comment, timestamp, links) VALUES('$ID', '$FileSender', '$FileReceiver', '', '$FileComment', now(), '$FileLink')";
+
+        //echo $SQL;
+
+        $SQL = $this->_DB->doQuery($SQL);
+
+        $Result = new Result();
+        $Result->setIsSuccess(1);
+        $Result->setResultObject($SQL);
+
+        return $Result;
+
+    }
+
+
+    public function getFileAssignToBeAppended($File)
+    {
+        $File_assignList = array();
+        $thisUser = $globalUser = $_SESSION['globalUser']->getID();
+
+        $fileid = $File->getID();
+
+
+
+
+        $this->_DB->doQuery("SELECT * 
+                FROM `fms_fileassign` 
+                WHERE fms_fileassign.ID = '$fileid'
+                ORDER BY fms_fileassign.timestamp DESC LIMIT 1");
+
+
+
+        $rows = $this->_DB->getAllRows();
+
+        for($i = 0; $i < sizeof($rows); $i++) {
+            $row = $rows[$i];
+            $this->_File_assign = new File_assign();
+
+            $_File = new File();
+
+
+            $this->_File_assign->setFile($_File);
+            $this->_File_assign->setFileComment( $row['comment']);
+            $this->_File_assign->setSender($row['sender']);
+            $this->_File_assign->setReceiver($row['receiver']);
+            $this->_File_assign->setTimestamp($row['timestamp']);
+            $this->_File_assign->setLinks($row["links"]);
+
+
+
+            $File_assignList[]=$this->_File_assign;
+
+        }
+
+        //print_r($File_assignList);
+
+        //todo: LOG util with level of log
+
+
+        $Result = new Result();
+        $Result->setIsSuccess(1);
+        $Result->setResultObject($File_assignList);
+
+        return $Result;
+    }
+
 
 	public function getFileHistory($File)
     {
@@ -83,6 +170,7 @@ Class File_assignDAO{
             $this->_File_assign->setSender($row['sender']);
             $this->_File_assign->setReceiver($row['receiver']);
             $this->_File_assign->setTimestamp($row['timestamp']);
+            $this->_File_assign->setLinks($row['links']);
             //$this->_File_assign->setDiscipline($row['Name']);
 
 
@@ -258,12 +346,13 @@ WHERE fms_fileassign.ID = fms_file.ID AND fms_fileassign.receiver = T.FileReceiv
         $FileComment=$File_assign->getFileComment();
         $FileSender = $File_assign->getSender();
         $FileReceiver = $File_assign->getReceiver();
+        $FileLink = $File_assign->getLinks();
 
 
 
 
 
-        $SQL = "INSERT INTO fms_fileassign(ID, sender, receiver, disciplineID, comment, timestamp) VALUES('$ID', '$FileSender', '$FileReceiver', '', '$FileComment', now())";
+        $SQL = "INSERT INTO fms_fileassign(ID, sender, receiver, disciplineID, comment, timestamp, links) VALUES('$ID', '$FileSender', '$FileReceiver', '', '$FileComment', now(), '$FileLink')";
 
         //echo $SQL;
 

@@ -22,21 +22,44 @@ $_UserBAO = new UserBAO();
 //$discipline = array("CSE","ECE","MATH");
 
 /* saving a new File account*/
+
+
+
+
+
 if(isset($_POST['save']))
 {
     //
 
     $uploadOk = 1;
     $target_dir = "uploads/file/";
+
     $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
+    $ext = pathinfo($target_file, PATHINFO_EXTENSION);
+
+    $target_file_link = random_string(10).".".$ext;
     //$id = hash_file('md5',$_FILES["fileToUpload"]["tmp_name"]);
+
+    $target_file_link = $target_dir.$target_file_link;
+
+
+
+    echo $target_file_link;
+
+
     $id = Util::getGUID();
     $discipline = "";
     $receiver = $_POST["users"];
     $link = $_FILES["fileToUpload"]["tmp_name"];
     $comment = $_POST["Comment"];
 
-    if (file_exists($target_file)) {
+    //move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir.$target_file_link);
+
+
+
+
+
+    if (file_exists($target_file_link)) {
         echo '<br>'. "Sorry, file already exists.";
         $uploadOk = 0;
     }
@@ -56,15 +79,17 @@ if(isset($_POST['save']))
         echo '<br>'.'<strong style=" color:red; ">'."Sorry, your file was not uploaded.".'</strong>';
 // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file_link)) {
             echo '<br>'.'<strong style=" color:green; ">'."The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.".'</strong>';
 
             //
 
+
+
             $File = new File();
             $File->setID($id);
             $File->setCreator($globalUser->getID());
-            $File->setLink($target_file);
+            $File->setLink($target_file_link);
             $File->setCurrentUser($receiver);
 
 
@@ -76,12 +101,12 @@ if(isset($_POST['save']))
             $FileAssign->setSender($globalUser->getID());
             $FileAssign->setReceiver($receiver);
             $FileAssign->setTimestamp("");
-
+            $FileAssign->setLinks($target_file_link." ".$globalUser->getID()." ".time());
 
             $FileCreationResult = $_FileBAO->createFile($File);
             if ($FileCreationResult->getIsSuccess())
             {
-                echo "File DOne ";
+                echo "File Done ";
 
                 $FileAssignResult = $_File_assignBAO->createFile_assign($FileAssign);
 
@@ -99,12 +124,32 @@ if(isset($_POST['save']))
         } else {
             echo '<br>'.'<strong style=" color:red; ">'."Sorry, there was an error uploading your file.".'</strong>';
         }
+
+
     }
 
+
+
 }
+
+function random_string($length) {
+    $key = '';
+    $keys = array_merge(range(0, 9), range('a', 'z'));
+
+    for ($i = 0; $i < $length; $i++) {
+        $key .= $keys[array_rand($keys)];
+    }
+
+    return $key;
+
+}
+
+
 
 
 
 //echo '<br> log:: exit blade.share.inc';
 //header("Location:".PageUtil::$FILE_STATUS);
 ?>
+
+

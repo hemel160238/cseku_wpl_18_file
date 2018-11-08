@@ -41,6 +41,29 @@ Class File_assignBAO{
         return $Result;
     }
 
+    public function createFile_assign_and_append($FileAssign)
+    {
+        $Result = new Result();
+        $Result = $this->_File_assignDAO->createFile_assign_and_append($FileAssign);
+
+        if(!$Result->getIsSuccess())
+            $Result->setResultObject("Database failure in File_assignDAO.createFile_assign()");
+
+        return $Result;
+    }
+
+
+    public function getFileAssignToBeAppended($File)
+    {
+        $Result = new Result();
+        $Result = $this->_File_assignDAO->getFileAssignToBeAppended($File);
+
+        if(!$Result->getIsSuccess())
+            $Result->setResultObject("Database failure in File_assignDAO.createFile_assign()");
+
+        return $Result;
+    }
+
 
     //get all File_assigns value
     public function getAllReceivedFile_assigns(){

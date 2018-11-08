@@ -160,6 +160,7 @@ if (isset($_GET['history']))
             <td>Time</td>
             <td>Sender</td>
             <td>Receiver</td>
+            <td>Links</td>
             <td>Comment</td>
             
         </tr>");
@@ -180,7 +181,9 @@ if (isset($_GET['history']))
             }
 
                  echo ("<td>");
-                      echo $FileAssign->getTimestamp();
+                      //echo $FileAssign->getTimestamp();
+                        $date = new DateTime($FileAssign->getTimestamp());
+                        echo $date->format('h:i:s a m/d/Y') ;
                  echo ("</td>");
 
 
@@ -200,6 +203,55 @@ if (isset($_GET['history']))
                         $User = $_UserBAO->readUser($User);
                         $User = $User->getResultObject();
                         echo $User->getFirstName() ." ". $User->getLastName();
+                echo ("</td>");
+
+
+                echo ("<td>");
+
+
+                             $fileLinks =  $FileAssign->getLinks();
+                             $linksArray = explode(',',$fileLinks);
+                             for ($j=0 ; $j < sizeof($linksArray) ; $j++)
+                             {
+                                 $link_and_creator = $linksArray[$j];
+                                 $link_and_creator_and_time_array = explode(" ",$link_and_creator);
+
+                                 $User = new user();
+                                 $User->setID($link_and_creator_and_time_array[1]);
+                                 $User = $_UserBAO->readUser($User);
+                                 $User = $User->getResultObject();
+                                 $userName =  $User->getFirstName() ." ". $User->getLastName();
+
+                                 $time = $link_and_creator_and_time_array[2];
+                                 date_default_timezone_set('Asia/Dhaka');
+
+                                 echo ("<a target=\"_blank\" rel=\"noopener noreferrer\" href=");
+                                 echo ('"'.$link_and_creator_and_time_array[0].'" ');
+
+                                 if ($j==0)
+                                 {
+                                     echo ('data-toggle="tooltip" data-placement="top" title="Created by '.$userName.' on '.date('m/d/Y h:i:s a', $time).'"');
+                                 }
+
+                                 else
+                                 {
+                                     echo ('data-toggle="tooltip" data-placement="top" title="Appended by '.$userName.' on '.date('m/d/Y h:i:s a', $time).'"');
+                                 }
+
+
+                                 echo (">");
+
+                                 echo ("<button type=\"button\" class=\"btn btn-default\" aria-label=\"Left Align\">
+                                <span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span>
+                                </button>");
+
+                                 echo ("</a>");
+
+                             }
+
+
+                        echo ("</a>");
+
                 echo ("</td>");
 
 

@@ -81,7 +81,7 @@ include_once COMMON.'class.common.file.inc';
                     else
                     {
                         ?>
-                        <button type="submit" name="save">save</button>
+                        <button type="submit" name="save">Share</button>
                         <?php
                     }
                     ?>
